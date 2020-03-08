@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title Horario.
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="style.css")
+    script(src="Main.js")
+  body
+    h1 Horario automatica.
+    section.container
+      - for (var rows = 0; rows < 8; rows++)
+        div.row
+          input(type="text" placeholder="Materia.").element
+          - for(var boxHour=0;boxHour<5;boxHour++)
+            select().selectHours.element
+              option(value="" selected) seleciona. 
+              - for(var hour=7;hour<19;hour++)
+                  if hour < 10
+                    option(value="0"+hour+":00" ).hourOpt 0#{hour}:00
+                  else
+                    option(value=hour+":00" ).hourOpt #{hour}:00
+    section.container.buttons
+      a(href="#").button.generar#buttonGenerar Generar.
+      
+      a(href="").button.delete limpiar.
